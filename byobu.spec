@@ -8,7 +8,8 @@ Group:		Applications/System
 Source0:	http://code.launchpad.net/byobu/trunk/2.36/+download/%{name}_%{version}.orig.tar.gz
 # Source0-md5:	6dd84835ec1e7b3b4bf7f7e2da952896
 URL:		https://code.launchpad.net/byobu
-BuildRequires:	gettext
+BuildRequires:	gettext-devel
+BuildRequires:	rpm-pythonprov
 Requires:	newt
 Requires:	python >= 2.5
 Requires:	screen
