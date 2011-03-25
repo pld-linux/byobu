@@ -1,5 +1,6 @@
 Summary:	A set of useful profiles and a profile-switcher for GNU screen
 Summary(hu.UTF-8):	Hasznos profilok és profilváltó gyűjteménye a GNU screen-hez
+Summary(pl.UTF-8):	Zestaw przydatnych profili oraz przełącznik profili dla GNU screena
 Name:		byobu
 Version:	2.36
 Release:	0.1
@@ -11,7 +12,7 @@ URL:		https://code.launchpad.net/byobu
 BuildRequires:	gettext-devel
 BuildRequires:	rpm-pythonprov
 Requires:	newt
-Requires:	python >= 2.5
+Requires:	python >= 1:2.5
 Requires:	screen
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -27,6 +28,12 @@ Byobu egy elegáns kiterjesztése az amúgy használható, egyszerű,
 praktikus GNU screen-nek. A Byobu tartalmaz egy kiterjesztett profilt
 és konfigurációs eszközöket a GNU screen ablakkezelőhöz, pl. a
 ki/bekapcsolható rendszer státusz jelentéseket.
+
+%description -l pl.UTF-8
+Byobu to eleganckie rozszerzenie dla funkcjonalnego, zwykłego,
+praktycznego GNU screena. Byobu zawiera rozszerzony profil oraz
+narzędzia konfiguracyjne dla zarządcy okien, jakim jest GNU screen
+- takie jak przełączane powiadomienia o stanie systemu.
 
 %prep
 %setup -q -n %{name}_%{version}.orig
@@ -48,7 +55,6 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/byobu
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 %{__cp} bin/* $RPM_BUILD_ROOT%{_libdir}/byobu
 %{__cp} -r po/locale/* $RPM_BUILD_ROOT%{_datadir}/locale
-%{__rm} -rf $RPM_BUILD_ROOT%{_datadir}/locale/la
 %{__cp} profiles/{byoburc,common,NONE,black,dark,light} $RPM_BUILD_ROOT%{_datadir}/byobu/profiles
 ln -sf f-keys $RPM_BUILD_ROOT%{_datadir}/byobu/keybindings/common
 %{__cp} keybindings/{f-keys,none} $RPM_BUILD_ROOT%{_datadir}/byobu/keybindings
