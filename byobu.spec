@@ -15,7 +15,8 @@ BuildRequires:	rpmbuild(macros) >= 1.596
 Requires:	desktop-file-utils
 Requires:	newt
 Requires:	python >= 1:2.5
-Requires:	screen
+Suggests:	screen
+Suggests:	tmux
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
