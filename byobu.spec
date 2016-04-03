@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	Hasznos profilok és profilváltó gyűjteménye a GNU screen
 Summary(pl.UTF-8):	Zestaw przydatnych profili oraz przełącznik profili dla GNU screena
 Name:		byobu
 Version:	5.97
-Release:	0.1
+Release:	0.2
 License:	GPL v3
 Group:		Applications/System
 Source0:	https://code.launchpad.net/byobu/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
@@ -119,6 +119,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/vigpg
 %attr(755,root,root) %{_bindir}/wifi-status
 %{_mandir}/man1/*.1*
+%{_desktopdir}/%{name}.desktop
+# preserve +x bits where needed
+%defattr(-,root,root,-)
 %{_libexecdir}/%{name}
 %{_datadir}/%{name}
-%{_desktopdir}/%{name}.desktop
