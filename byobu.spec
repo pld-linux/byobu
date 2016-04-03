@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	Hasznos profilok és profilváltó gyűjteménye a GNU screen
 Summary(pl.UTF-8):	Zestaw przydatnych profili oraz przełącznik profili dla GNU screena
 Name:		byobu
 Version:	5.97
-Release:	0.3
+Release:	0.6
 License:	GPL v3
 Group:		Applications/System
 Source0:	https://code.launchpad.net/byobu/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
@@ -19,6 +19,8 @@ Suggests:	screen
 Suggests:	tmux
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noautocompressdoc '*.txt'
 
 %define		_libexecdir	%{_prefix}/lib
 
@@ -43,6 +45,13 @@ narzędzia konfiguracyjne dla zarządcy okien, jakim jest GNU screen
 %prep
 %setup -q
 
+%{__sed} -i -e '
+	s#/share/doc/byobu#/share/doc/%{name}-%{version}#
+' usr/share/byobu/keybindings/*
+
+# cleanup backups after patching
+find '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -f
+
 %build
 %configure
 %{__make}
@@ -59,7 +68,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	INSTALL="install -p" \
 	CP="cp -p" \
-	docdir=%{_docdir}/%{name} \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
