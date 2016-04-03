@@ -16,7 +16,7 @@ Requires:	desktop-file-utils
 Requires:	python >= 1:2.5
 Requires:	python-snack
 Suggests:	screen
-Suggests:	tmux
+Suggests:	tmux >= 1.5
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
