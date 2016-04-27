@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	Hasznos profilok és profilváltó gyűjteménye a GNU screen
 Summary(pl.UTF-8):	Zestaw przydatnych profili oraz przełącznik profili dla GNU screena
 Name:		byobu
 Version:	5.97
-Release:	0.6
+Release:	1
 License:	GPL v3
 Group:		Applications/System
 Source0:	https://code.launchpad.net/byobu/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
