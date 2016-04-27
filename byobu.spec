@@ -2,12 +2,12 @@ Summary:	A set of useful profiles and a profile-switcher for GNU screen
 Summary(hu.UTF-8):	Hasznos profilok és profilváltó gyűjteménye a GNU screen-hez
 Summary(pl.UTF-8):	Zestaw przydatnych profili oraz przełącznik profili dla GNU screena
 Name:		byobu
-Version:	5.97
+Version:	5.106
 Release:	1
 License:	GPL v3
 Group:		Applications/System
 Source0:	https://code.launchpad.net/byobu/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
-# Source0-md5:	06fc9398700de1ecba576e0819fe5626
+# Source0-md5:	702803d8f4717b96b6881e3128b7bbc2
 URL:		https://launchpad.net/byobu
 BuildRequires:	gettext-tools
 BuildRequires:	rpm-pythonprov
@@ -70,6 +70,11 @@ rm -rf $RPM_BUILD_ROOT
 	CP="cp -p" \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# some debian hackery, just use the "current" one for pld
+install -d $RPM_BUILD_ROOT%{_desktopdir}
+mv $RPM_BUILD_ROOT{%{_datadir}/%{name}/desktop,%{_desktopdir}}/%{name}.desktop
+rm $RPM_BUILD_ROOT%{_datadir}/%{name}/desktop/%{name}.desktop.old
+
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
 install -d $RPM_BUILD_ROOT%{_localedir}
@@ -124,9 +129,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/byobu-ulevel
 %attr(755,root,root) %{_bindir}/col1
 %attr(755,root,root) %{_bindir}/ctail
+%attr(755,root,root) %{_bindir}/manifest
+%attr(755,root,root) %{_bindir}/purge-old-kernels
 %attr(755,root,root) %{_bindir}/vigpg
 %attr(755,root,root) %{_bindir}/wifi-status
 %{_mandir}/man1/*.1*
+/etc/profile.d/Z97-byobu.sh
+%{_datadir}/dbus-1/services/us.kirkland.terminals.byobu.service
 %{_desktopdir}/%{name}.desktop
 # preserve +x bits where needed
 %defattr(-,root,root,-)
