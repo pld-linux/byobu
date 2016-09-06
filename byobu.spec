@@ -2,12 +2,12 @@ Summary:	A set of useful profiles and a profile-switcher for GNU screen
 Summary(hu.UTF-8):	Hasznos profilok és profilváltó gyűjteménye a GNU screen-hez
 Summary(pl.UTF-8):	Zestaw przydatnych profili oraz przełącznik profili dla GNU screena
 Name:		byobu
-Version:	5.107
+Version:	5.111
 Release:	1
 License:	GPL v3
 Group:		Applications/System
 Source0:	https://code.launchpad.net/byobu/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
-# Source0-md5:	2d408c067c832d299e9f4a2c05330e81
+# Source0-md5:	286151043876bf9f7e884f95f706aa73
 URL:		https://launchpad.net/byobu
 BuildRequires:	gettext-tools
 BuildRequires:	rpm-pythonprov
@@ -73,7 +73,6 @@ rm -rf $RPM_BUILD_ROOT
 # some debian hackery, just use the "current" one for pld
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 mv $RPM_BUILD_ROOT{%{_datadir}/%{name}/desktop,%{_desktopdir}}/%{name}.desktop
-rm $RPM_BUILD_ROOT%{_datadir}/%{name}/desktop/%{name}.desktop.old
 
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
