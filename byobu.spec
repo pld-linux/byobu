@@ -8,6 +8,7 @@ License:	GPL v3
 Group:		Applications/System
 Source0:	https://code.launchpad.net/byobu/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
 # Source0-md5:	286151043876bf9f7e884f95f706aa73
+Patch0:		desktop.patch
 URL:		https://launchpad.net/byobu
 BuildRequires:	gettext-tools
 BuildRequires:	rpm-pythonprov
@@ -44,6 +45,7 @@ narzędzia konfiguracyjne dla zarządcy okien, jakim jest GNU screen
 
 %prep
 %setup -q
+%patch0 -p1
 
 %{__sed} -i -e '
 	s#/share/doc/byobu#/share/doc/%{name}-%{version}#
