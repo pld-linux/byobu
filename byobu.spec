@@ -2,12 +2,12 @@ Summary:	A set of useful profiles and a profile-switcher for GNU screen
 Summary(hu.UTF-8):	Hasznos profilok és profilváltó gyűjteménye a GNU screen-hez
 Summary(pl.UTF-8):	Zestaw przydatnych profili oraz przełącznik profili dla GNU screena
 Name:		byobu
-Version:	5.111
+Version:	5.112
 Release:	1
 License:	GPL v3
 Group:		Applications/System
 Source0:	https://code.launchpad.net/byobu/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
-# Source0-md5:	286151043876bf9f7e884f95f706aa73
+# Source0-md5:	69d0681d83a2811e59642d5ebaa94670
 Patch0:		desktop.patch
 URL:		https://launchpad.net/byobu
 BuildRequires:	gettext-tools
