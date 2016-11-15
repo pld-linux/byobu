@@ -1,0 +1,18 @@
+--- byobu-5.112/usr/lib/byobu/logo~	2016-11-15 06:10:16.000000000 +0200
++++ byobu-5.112/usr/lib/byobu/logo	2016-11-15 06:10:20.583778776 +0200
+@@ -123,6 +124,15 @@
+ 			logo=" X "
+ 			$MARKUP && printf "$(color W r)%s$(color -)" "$logo" || printf "$logo"
+ 		;;
++		*pld*)
++			if [ "$BYOBU_BACKEND" = "tmux" ] && [ "$BYOBU_CHARMAP" = "UTF-8" ]; then
++				# PLD Logo is Stork, but no stork in unicode, so just use Bird (U+1F426)
++				logo=" 🐦 "
++			else
++				logo="pld"
++			fi
++			$MARKUP && printf "$(color u B k)%s$(color -)" "$logo" || printf "$logo"
++		;;
+ 		*)
+ 			if [ "$BYOBU_BACKEND" = "tmux" ] && [ "$BYOBU_CHARMAP" = "UTF-8" ]; then
+ 				logo="〣"
