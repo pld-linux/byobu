@@ -1,9 +1,10 @@
---- /usr/share/byobu/desktop/byobu.desktop~	2015-12-02 19:49:44.000000000 +0200
-+++ /usr/share/byobu/desktop/byobu.desktop	2016-09-06 07:51:18.683460874 +0300
-@@ -4,5 +4,5 @@
+--- byobu-5.129/usr/share/byobu/desktop/byobu.desktop~	2018-08-12 17:09:35.000000000 +0300
++++ byobu-5.129/usr/share/byobu/desktop/byobu.desktop	2019-11-16 22:51:48.200666969 +0200
+@@ -4,6 +4,6 @@
  Icon=byobu
- Exec=gnome-terminal --app-id us.kirkland.terminals.byobu -e byobu
+ Exec=gnome-terminal --app-id us.kirkland.terminals.byobu --class=us.kirkland.terminals.byobu -e byobu
  Type=Application
--Categories=GNOME;GTK;Utility;
+-Categories=GNOME;GTK;System;Utility;TerminalEmulator;
 +Categories=GNOME;GTK;Utility;TerminalEmulator;
+ StartupWMClass=us.kirkland.terminals.byobu
  X-GNOME-Gettext-Domain=byobu
