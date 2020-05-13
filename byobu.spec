@@ -2,12 +2,12 @@ Summary:	A set of useful profiles and a profile-switcher for GNU screen
 Summary(hu.UTF-8):	Hasznos profilok és profilváltó gyűjteménye a GNU screen-hez
 Summary(pl.UTF-8):	Zestaw przydatnych profili oraz przełącznik profili dla GNU screena
 Name:		byobu
-Version:	5.129
+Version:	5.133
 Release:	1
 License:	GPL v3
 Group:		Applications/System
 Source0:	https://code.launchpad.net/byobu/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
-# Source0-md5:	7ec69e1c169e3bc8494423176733c8de
+# Source0-md5:	0ff03f3795cc08aae50c1ab117c03261
 Patch0:		desktop.patch
 Patch1:		pld-logo.patch
 URL:		https://launchpad.net/byobu
@@ -53,6 +53,8 @@ narzędzia konfiguracyjne dla zarządcy okien, jakim jest GNU screen
 	s#/share/doc/byobu#/share/doc/%{name}-%{version}#
 ' usr/share/byobu/keybindings/*
 
+%{__sed} -i -e '1s,^#!.*python3,#!%{__python3},' usr/lib/byobu/include/*.py{,.in}
+
 # cleanup backups after patching
 find '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -f
 
@@ -96,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README
+%doc README.md
 %doc usr/share/doc/byobu/*.txt
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/backend
