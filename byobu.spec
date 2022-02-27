@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	Hasznos profilok és profilváltó gyűjteménye a GNU screen
 Summary(pl.UTF-8):	Zestaw przydatnych profili oraz przełącznik profili dla GNU screena
 Name:		byobu
 Version:	5.133
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		Applications/System
 Source0:	https://code.launchpad.net/byobu/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
@@ -15,8 +15,8 @@ BuildRequires:	gettext-tools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.596
 Requires:	desktop-file-utils
-Requires:	python >= 1:2.5
-Requires:	python-snack
+Requires:	python3
+Requires:	python3-snack
 Suggests:	screen
 Suggests:	tmux >= 1.5
 BuildArch:	noarch
